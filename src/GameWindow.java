@@ -48,7 +48,7 @@ public class GameWindow extends JFrame {
             gp.activePlantingBrush = PlantType.FreezePeashooter;
         });
         getLayeredPane().add(freezepeashooter,new Integer(3));
-//Alo alo
+
         getLayeredPane().add(sun,new Integer(2));
         setResizable(false);
         setVisible(true);
