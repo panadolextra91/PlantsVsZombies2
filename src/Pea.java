@@ -23,14 +23,13 @@ public class Pea {
             Rectangle zRect = new Rectangle(z.posX,109 + myLane*120,400,120);
             if(pRect.intersects(zRect)){
                 if (z instanceof NormalZombie) {
-                    z.health -= 300;
-                } else if (z instanceof ConeHeadZombie) {
                     z.health -= 250;
+                } else if (z instanceof ConeHeadZombie) {
+                    z.health -= 200;
                 }
                 boolean exit = false;
                 if(z.health < 0){
                     System.out.println("ZOMBIE DIE");
-
                     gp.laneZombies.get(myLane).remove(i);
                     GamePanel.setProgress(10);
                     exit = true;

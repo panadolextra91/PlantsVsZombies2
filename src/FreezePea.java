@@ -17,9 +17,9 @@ public class FreezePea extends Pea {
             Rectangle zRect = new Rectangle(z.posX,109 + myLane*120,400,120);
             if(pRect.intersects(zRect)) {
                 if (z instanceof NormalZombie) {
-                    z.health -= 300;
-                } else if (z instanceof ConeHeadZombie) {
                     z.health -= 250;
+                } else if (z instanceof ConeHeadZombie) {
+                    z.health -= 200;
                 }
                 z.slow();
                 boolean exit = false;
