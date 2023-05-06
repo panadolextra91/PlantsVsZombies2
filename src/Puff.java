@@ -13,9 +13,9 @@ public class Puff extends Pea{
             Rectangle zRect = new Rectangle(z.posX,109 + myLane*120,400,120);
             if(pRect.intersects(zRect)) {
                 if (z instanceof NormalZombie) {
-                    z.health -= 200;
+                    z.health -= 500;
                 } else if (z instanceof ConeHeadZombie) {
-                    z.health -= 150;
+                    z.health -= 450;
                 }
                 boolean exit = false;
                 if(z.health < 0){
