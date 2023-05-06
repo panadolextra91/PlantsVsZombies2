@@ -11,7 +11,7 @@ public class GameWindow extends JFrame {
         Sunflower,
         Peashooter,
         FreezePeashooter,
-        CherryBomb,
+        CherryBomb;
 
     }
 
@@ -57,6 +57,7 @@ public class GameWindow extends JFrame {
             gp.activePlantingBrush = PlantType.CherryBomb;
         });
         getLayeredPane().add(cherrybomb,new Integer(3));
+
 
         getLayeredPane().add(sun,new Integer(2));
         setResizable(false);
