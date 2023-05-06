@@ -37,6 +37,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
     Timer advancerTimer;
     Timer sunProducer;
     Timer zombieProducer;
+    static Timer zombieSpawn;
     JLabel sunScoreboard;
 
     GameWindow.PlantType activePlantingBrush = GameWindow.PlantType.None;
@@ -145,6 +146,24 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
             laneZombies.get(l).add(z);
         });
         zombieProducer.start();
+
+        zombieSpawn = new Timer(1000,(ActionEvent e) -> {
+            Random rnd = new Random();
+            LevelData lvl = new LevelData();
+            String [] Level = lvl.Level[Integer.parseInt(lvl.Lvl)-1];
+            int [][] LevelValue = lvl.LevelValue[Integer.parseInt(lvl.Lvl)-1];
+            int l = rnd.nextInt(5);
+            int t = rnd.nextInt(100);
+            Zombie z = null;
+            for(int i = 0;i<LevelValue.length;i++) {
+                if(t>=LevelValue[i][0]&&t<=LevelValue[i][1]) {
+                    z = Zombie.getZombie(Level[i],GamePanel.this,l);
+                }
+            }
+            laneZombies.get(l).add(z);
+        });
+
+
 
     }
 
@@ -294,10 +313,14 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         mouseY = e.getY();
     }
     static int progress = 0;
+
     public static void setProgress(int num) {
         progress = progress + num;
         System.out.println(progress);
-        if(progress>=150) {
+        if(progress == 150) {
+            zombieSpawn.start();
+        }
+        if(progress>500) {
            if("1".equals(LevelData.Lvl)) {
             JOptionPane.showMessageDialog(null,"Level Completed !!!" + '\n' + "Starting next Level");
             GameWindow.gw.dispose();
