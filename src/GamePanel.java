@@ -6,8 +6,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created by Armin on 6/25/2016.
@@ -20,6 +18,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
     Image sunflowerImage;
     Image peaImage;
     Image freezePeaImage;
+    Image cherryBombImage;
 
     Image normalZombieImage;
     Image coneHeadZombieImage;
@@ -62,6 +61,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         peashooterImage = new ImageIcon(this.getClass().getResource("images/plants/peashooter.gif")).getImage();
         freezePeashooterImage = new ImageIcon(this.getClass().getResource("images/plants/freezepeashooter.gif")).getImage();
         sunflowerImage = new ImageIcon(this.getClass().getResource("images/plants/sunflower.gif")).getImage();
+        cherryBombImage = new ImageIcon(this.getClass().getResource("images/plants/cherrybomb.gif")).getImage();
         peaImage = new ImageIcon(this.getClass().getResource("images/pea.png")).getImage();
         freezePeaImage = new ImageIcon(this.getClass().getResource("images/freezepea.png")).getImage();
 
@@ -233,6 +233,13 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
                 if(getSunScore() >= 175) {
                     colliders[x + y * 9].setPlant(new FreezePeashooter(GamePanel.this, x, y));
                     setSunScore(getSunScore()-175);
+                }
+            }
+
+            if(activePlantingBrush == GameWindow.PlantType.CherryBomb){
+                if(getSunScore() >= 150) {
+                    colliders[x + y * 9].setPlant(new CherryBomb(GamePanel.this, x, y));
+                    setSunScore(getSunScore()-150);
                 }
             }
 
