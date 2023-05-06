@@ -66,11 +66,11 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         peashooterImage = new ImageIcon(this.getClass().getResource("images/plants/peashooter.gif")).getImage();
         freezePeashooterImage = new ImageIcon(this.getClass().getResource("images/plants/freezepeashooter.gif")).getImage();
         sunflowerImage = new ImageIcon(this.getClass().getResource("images/plants/sunflower.gif")).getImage();
-        fumeShroomImage = new ImageIcon(this.getClass().getResource("inages/plant/fumeshroom.gif")).getImage();
+        fumeShroomImage = new ImageIcon(this.getClass().getResource("images/plants/7krtcp.gif")).getImage();
         //cherryBombImage = new ImageIcon(this.getClass().getResource("images/plants/7kqycf.gif")).getImage();
         peaImage = new ImageIcon(this.getClass().getResource("images/pea.png")).getImage();
         freezePeaImage = new ImageIcon(this.getClass().getResource("images/freezepea.png")).getImage();
-        fumeImage = new ImageIcon(this.getClass().getResource("images/fume.png")).getImage();
+        fumeImage = new ImageIcon(this.getClass().getResource("images/puff.png")).getImage();
         //explosionImage = new ImageIcon(this.getClass().getResource("images/explosion.gif")).getImage();
 
         normalZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie1.png")).getImage();
@@ -212,8 +212,10 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
                 Pea p = lanePeas.get(i).get(j);
                 if(p instanceof FreezePea){
                     g.drawImage(freezePeaImage, p.posX, 130 + (i * 120), null);
-                }else {
-                    g.drawImage(peaImage, p.posX, 130 + (i * 120), null);
+                }else if (p instanceof Puff) {
+                    g.drawImage(fumeImage, p.posX, 130 + (i * 120), null);
+                } else {
+                    g.drawImage(peaImage, p.posX, 130+(i*120), null);
                 }
             }
             /*for (int j=0; j < laneBombs.get(i).size(); j++) {
@@ -261,6 +263,12 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
                 if(getSunScore() >= 175) {
                     colliders[x + y * 9].setPlant(new FreezePeashooter(GamePanel.this, x, y));
                     setSunScore(getSunScore()-175);
+                }
+            }
+            if(activePlantingBrush == GameWindow.PlantType.FumeShroom) {
+                if (getSunScore() >= 75) {
+                    colliders[x + y * 9].setPlant(new FumeShroom(GamePanel.this, x, y));
+                    setSunScore(getSunScore()-75);
                 }
             }
 

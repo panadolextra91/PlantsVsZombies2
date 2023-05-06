@@ -52,12 +52,12 @@ public class GameWindow extends JFrame {
         });
         getLayeredPane().add(freezepeashooter,new Integer(3));
 
-        PlantCard fumeshroom = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_fumeshroom.png")).getImage());
-        freezepeashooter.setLocation(240+65,8);
-        freezepeashooter.setAction((ActionEvent e) -> {
+        PlantCard fumeshroom = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_fume.png")).getImage());
+        fumeshroom.setLocation(305,8);
+        fumeshroom.setAction((ActionEvent e) -> {
             gp.activePlantingBrush = PlantType.FumeShroom;
         });
-        getLayeredPane().add(freezepeashooter,new Integer(3));
+        getLayeredPane().add(fumeshroom,new Integer(3));
 
         /*PlantCard cherrybomb = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_cherrybomb.png")).getImage());
         cherrybomb.setLocation(305,8);
