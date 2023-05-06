@@ -26,6 +26,8 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
     
     ArrayList<ArrayList<Zombie>> laneZombies;
     ArrayList<ArrayList<Pea>> lanePeas;
+
+    ArrayList<ArrayList<Bomb>> laneBombs;
     ArrayList<Sun> activeSuns;
 
     Timer redrawTimer;
@@ -81,6 +83,13 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         lanePeas.add(new ArrayList<>()); //line 3
         lanePeas.add(new ArrayList<>()); //line 4
         lanePeas.add(new ArrayList<>()); //line 5
+
+        laneBombs = new ArrayList<>();
+        laneBombs.add(new ArrayList<>());
+        laneBombs.add(new ArrayList<>());
+        laneBombs.add(new ArrayList<>());
+        laneBombs.add(new ArrayList<>());
+        laneBombs.add(new ArrayList<>());
 
         colliders = new Collider[45];
         for (int i = 0; i < 45; i++) {
@@ -143,6 +152,10 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
                 Pea p = lanePeas.get(i).get(j);
                 p.advance();
             }
+            for (int j = 0; i < laneBombs.get(i).size(); j++) {
+                Bomb b = laneBombs.get(i).get(j);
+                b.advance();
+            }
 
         }
 
@@ -171,7 +184,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
                 if(p instanceof Sunflower){
                     g.drawImage(sunflowerImage,60 + (i%9)*100,129 + (i/9)*120,null);
                 }
-                if(p instanceof  CherryBomb) {
+                if(p instanceof CherryBomb) {
                     g.drawImage(cherryBombImage, 60 + (i%9)*100, 129 + (i/9)*120, null);
                 }
             }
@@ -193,6 +206,11 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
                 }else {
                     g.drawImage(peaImage, p.posX, 130 + (i * 120), null);
                 }
+            }
+            for (int j=0; j < laneBombs.get(i).get(j); j++) {
+                Bomb b = laneBombs.get(i).get(j);
+                if(b instanceof Explode)
+                    g.drawImage(cherryBombImage, b.posX, 130 +(i*120), null);
             }
 
         }
