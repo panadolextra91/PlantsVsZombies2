@@ -22,6 +22,7 @@ public class Puff extends Pea{
                     System.out.println("ZOMBIE DIE");
                     GamePanel.setProgress(10);
                     gp.laneZombies.get(myLane).remove(i);
+
                     exit = true;
                 }
                 gp.lanePeas.get(myLane).remove(this);

@@ -65,6 +65,8 @@ public class Zombie {
                                  break;
            case "ConeHeadZombie" : z = new ConeHeadZombie(parent,lane);
                                  break;
+           //case "DeadZombie" : z = new DeadZombie(parent,lane);
+           //break;
     }
        return z;
     }

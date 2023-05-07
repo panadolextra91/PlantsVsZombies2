@@ -7,9 +7,6 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Created by Armin on 6/25/2016.
- */
 public class GamePanel extends JLayeredPane implements MouseMotionListener {
 
     Image bgImage;
@@ -25,7 +22,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
 
     Image normalZombieImage;
     Image coneHeadZombieImage;
-    Image deathZombieImage;
+    //Image deathZombieImage;
     Collider[] colliders;
     
     ArrayList<ArrayList<Zombie>> laneZombies;
@@ -77,7 +74,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
 
         normalZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie1.gif")).getImage();
         coneHeadZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie2.gif")).getImage();
-        deathZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zomdie.gif")).getImage();
+        //deathZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zomdie.gif")).getImage();
 
         laneZombies = new ArrayList<>();
         laneZombies.add(new ArrayList<>()); //line 1
@@ -236,7 +233,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
                 }else if (p instanceof Puff) {
                     g.drawImage(fumeImage, p.posX, 130 + (i * 120), null);
                 } else {
-                    g.drawImage(peaImage, p.posX, 130+(i*120), null);
+                    g.drawImage(peaImage, p.posX, 130 + (i * 120), null);
                 }
             }
             /*for (int j=0; j < laneBombs.get(i).size(); j++) {
@@ -322,7 +319,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         if(progress == 150) {
             zombieSpawn.start();
         }
-        if(progress>=500) {
+        if(progress>=550) {
            if("1".equals(LevelData.Lvl)) {
             JOptionPane.showMessageDialog(null,"Level Completed !!!" + '\n' + "Starting next Level");
             GameWindow.gw.dispose();
