@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 /**
  * Created by Armin on 6/25/2016.
  */
-public abstract class Zombie {
+public class Zombie {
 
     public int health = 1000;
     public int speed = 1;
