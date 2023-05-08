@@ -1,22 +1,8 @@
-
 import java.awt.*;
 import javax.swing.*;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Vaibhav Sikarwar
- */
 public class Menu extends JPanel {
 
-    /**
-     * Creates new form Menu
-     */
     Image bgImage;
     public Menu() {
         initComponents();
@@ -36,8 +22,7 @@ public class Menu extends JPanel {
         g.drawImage(bgImage,0,0,null);
         
     }
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
