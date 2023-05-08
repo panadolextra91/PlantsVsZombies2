@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
-/**
- * Created by Armin on 6/25/2016.
- */
 public abstract class Zombie {
 
     public int health = 1000;
@@ -47,7 +44,7 @@ public abstract class Zombie {
             }
             if (posX < 0) {
                 isMoving = false;
-                JOptionPane.showMessageDialog(gp,"Bye bye!" + '\n' + "Starting the level again");
+                JOptionPane.showMessageDialog(gp,"ZOMBIES ATE YOUR BRAIN !" + '\n' + "Starting the level again");
                 GameWindow.gw.dispose();
                 GameWindow.gw = new GameWindow();
             }
@@ -59,7 +56,7 @@ public abstract class Zombie {
         slowInt = 1000;
     }
     public static Zombie getZombie(String type,GamePanel parent, int lane) {
-//         Zombie z = new Zombie(parent,lane);
+        // Zombie z = new Zombie(parent,lane);
         Zombie z;
        switch(type) {
            case "NormalZombie" : z = new NormalZombie(parent,lane);
@@ -68,6 +65,8 @@ public abstract class Zombie {
                                  break;
            //case "DeadZombie" : z = new DeadZombie(parent,lane);
            //break;
+        default:
+            throw new IllegalArgumentException("Invalid zombie type: "+ type);
     }
        return z;
     }
