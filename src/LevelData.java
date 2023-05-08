@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 import java.io.*;
 import java.util.logging.Logger;
-/**
- *
- * @author Vaibhav Singh Sikarwar
- */
+
 public class LevelData {
     static String Lvl = "1";
    static String [][] Level = {{"NormalZombie"},{"NormalZombie","ConeHeadZombie"}};

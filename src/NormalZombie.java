@@ -1,6 +1,3 @@
-/**
- * Created by Armin on 6/25/2016.
- */
 import javax.swing.ImageIcon;
 import java.awt.*;
 import java.util.Random;

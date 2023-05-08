@@ -1,8 +1,5 @@
 import java.awt.*;
 
-/**
- * Created by Armin on 6/28/2016.
- */
 public class FreezePea extends Pea {
 
     public FreezePea(GamePanel parent,int lane,int startX){
