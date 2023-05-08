@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 /**
  * Created by Armin on 6/25/2016.
  */
-public class Zombie {
+public abstract class Zombie {
 
     public int health = 1000;
     public int speed = 1;
@@ -59,7 +59,8 @@ public class Zombie {
         slowInt = 1000;
     }
     public static Zombie getZombie(String type,GamePanel parent, int lane) {
-        Zombie z = new Zombie(parent,lane);
+//         Zombie z = new Zombie(parent,lane);
+        Zombie z;
        switch(type) {
            case "NormalZombie" : z = new NormalZombie(parent,lane);
                                  break;
