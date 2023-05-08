@@ -1,9 +1,6 @@
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 
-/**
- * Created by Armin on 6/25/2016.
- */
 public class FreezePeashooter extends Plant {
 
     public Timer shootTimer;
