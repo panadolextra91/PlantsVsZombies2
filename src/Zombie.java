@@ -60,7 +60,7 @@ public abstract class Zombie {
     }
     public static Zombie getZombie(String type,GamePanel parent, int lane) {
 //         Zombie z = new Zombie(parent,lane);
-        Zombie z;
+        Zombie z = null;
        switch(type) {
            case "NormalZombie" : z = new NormalZombie(parent,lane);
                                  break;
