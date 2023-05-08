@@ -59,7 +59,8 @@ public abstract class Zombie {
         slowInt = 1000;
     }
     public static Zombie getZombie(String type,GamePanel parent, int lane) {
-        Zombie z = new Zombie(parent,lane);
+//         Zombie z = new Zombie(parent,lane);
+        Zombie z;
        switch(type) {
            case "NormalZombie" : z = new NormalZombie(parent,lane);
                                  break;
