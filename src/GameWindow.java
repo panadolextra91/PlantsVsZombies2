@@ -19,12 +19,13 @@ public class GameWindow extends JFrame {
         setSize(1012,785);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(null);
+        setTitle("Help me pls");
 
         JLabel sun = new JLabel("SUN");
         sun.setLocation(37,80);
         sun.setSize(60,20);
 
-        GamePanel gp = new GamePanel(sun);
+        GamePanel gp = GamePanel.getInstance(sun);
         gp.setLocation(0,0);
         getLayeredPane().add(gp,new Integer(0));
         
