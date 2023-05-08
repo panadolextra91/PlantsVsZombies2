@@ -56,6 +56,7 @@ public class GameWindow extends JFrame {
             gp.activePlantingBrush = PlantType.FumeShroom;
         });
         getLayeredPane().add(fumeshroom,new Integer(3));
+        
 
         /*PlantCard cherrybomb = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_cherrybomb.png")).getImage());
         cherrybomb.setLocation(305,8);

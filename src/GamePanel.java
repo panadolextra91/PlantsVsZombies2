@@ -227,9 +227,9 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         for (int i = 0; i < 5 ; i++) {
             for(Zombie z : laneZombies.get(i)){
                 if(z instanceof NormalZombie){
-                    g.drawImage(normalZombieImage,z.posX,109+(i*120),null);
+                    g.drawImage(normalZombieImage,z.posX,90+(i*120),null);
                 }else if(z instanceof ConeHeadZombie){
-                    g.drawImage(coneHeadZombieImage,z.posX,109+(i*120),null);
+                    g.drawImage(coneHeadZombieImage,z.posX,90+(i*120),null);
                 }
             }
 
@@ -238,7 +238,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
                 if(p instanceof FreezePea){
                     g.drawImage(freezePeaImage, p.posX, 130 + (i * 120), null);
                 }else if (p instanceof Puff) {
-                    g.drawImage(fumeImage, p.posX, 130 + (i * 120), null);
+                    g.drawImage(fumeImage, p.posX + 20, 140 + (i * 120), null);
                 } else {
                     g.drawImage(peaImage, p.posX, 130 + (i * 120), null);
                 }
