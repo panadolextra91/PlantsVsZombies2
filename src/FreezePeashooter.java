@@ -2,27 +2,32 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 /**
- * Created by Armin on 6/25/2016.
+ * FreezePeashooter is a specialized type of Plant that shoots Freeze Peas to slow down and damage zombies.
  */
 public class FreezePeashooter extends Plant {
 
+    // Timer that controls the shooting intervals of the Freeze Peashooter
     public Timer shootTimer;
 
+    // Constructor for the FreezePeashooter class
+    public FreezePeashooter(GamePanel parent, int x, int y) {
+        // Call the superclass constructor
+        super(parent, x, y);
 
-    public FreezePeashooter(GamePanel parent,int x,int y) {
-        super(parent,x,y);
-        shootTimer = new Timer(2000,(ActionEvent e) -> {
-            //System.out.println("SHOOT");
+        // Initialize and start the shootTimer with a 2000ms (2 seconds) interval
+        shootTimer = new Timer(2000, (ActionEvent e) -> {
+            // If there are zombies in the same lane as the Freeze Peashooter
             if(gp.laneZombies.get(y).size() > 0) {
+                // Create and add a new FreezePea to the lane
                 gp.lanePeas.get(y).add(new FreezePea(gp, y, 103 + this.x * 100));
             }
         });
         shootTimer.start();
     }
 
+    // Override the stop method to stop the shootTimer
     @Override
     public void stop(){
         shootTimer.stop();
     }
-
 }
