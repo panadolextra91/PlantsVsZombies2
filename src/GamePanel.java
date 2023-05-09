@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public final class GamePanel extends JLayeredPane implements MouseMotionListener {
-    private static GamePanel instance;
+    
+    private static GamePanel instance;  // Singleton instance of the GamePanel
+    // Images for game elements
     Image bgImage;
     Image peashooterImage;
     Image freezePeashooterImage;
@@ -31,6 +33,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
     //ArrayList<ArrayList<Bomb>> laneBombs;
     ArrayList<Sun> activeSuns;
 
+     // Timers for game events
     Timer redrawTimer;
     Timer advancerTimer;
     Timer sunProducer;
@@ -38,10 +41,13 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
     static Timer zombieSpawn;
     JLabel sunScoreboard;
 
+    // Enum for the type of plant currently being placed
     GameWindow.PlantType activePlantingBrush = GameWindow.PlantType.None;
 
+    // Variables to store the current position of the mouse
     int mouseX , mouseY;
 
+    // Variables for sun score
     private int sunScore;
 
     public int getSunScore() {
@@ -53,7 +59,9 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         sunScoreboard.setText(String.valueOf(sunScore));
     }
 
+    // Constructor for the GamePanel class
     private GamePanel(JLabel sunScoreboard){
+        // Initialize instance variables and set up the game
         setSize(1000,752);
         setLayout(null);
         addMouseMotionListener(this);
@@ -166,6 +174,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
 
     }
 
+    // Singleton pattern implementation for GamePanel
     public static GamePanel getInstance(JLabel sunScoreboard){
         if(instance== null){
             instance = new GamePanel(sunScoreboard);
@@ -173,6 +182,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         return instance;
     }
 
+    // Advance the game state
     private void advance(){
         for (int i = 0; i < 5 ; i++) {
             for(Zombie z : laneZombies.get(i)){
@@ -196,6 +206,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
 
     }
 
+    // Paint the game elements on the screen
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -318,8 +329,10 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         mouseX = e.getX();
         mouseY = e.getY();
     }
+    // Static variable to track game progress
     static int progress = 0;
 
+    // Update the game progress
     public static void setProgress(int num) {
         progress = progress + num;
         System.out.println(progress);
