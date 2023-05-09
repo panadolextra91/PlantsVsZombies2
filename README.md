@@ -1,10 +1,10 @@
 # PlantsVsZombies2
 ## Details
-**Created By:
+**Created By:**
 - [Anh Thu](https://github.com/panadolextra91)
 - [Dang Khoi](https://github.com/dangkhoi3107)
 - [Thao Nguyen](https://github.com/StephanieHwang421)
-- [Tien Son](https://github.com/Lynxions)**
+- [Tien Son](https://github.com/Lynxions)
 
 This is a clone of the strategy video game, [Plants vs. Zombies](https://en.wikipedia.org/wiki/Plants_vs._Zombies), originally developed by PopCap Games.
 
