@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 
 public class GameWindow extends JFrame {
 
+    // Enum to represent different types of plants
     public enum PlantType{
         None,
         Sunflower,
@@ -15,20 +16,25 @@ public class GameWindow extends JFrame {
 
     //PlantType activePlantingBrush = PlantType.None;
     
+    // Constructor for GameWindow
     public GameWindow(){
+        // Setting up the window properties
         setSize(1012,785);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(null);
         setTitle("Huhu");
 
+        // Creating and adding sun label to the window
         JLabel sun = new JLabel("SUN");
         sun.setLocation(37,80);
         sun.setSize(60,20);
 
+        // Creating and adding GamePanel to the window
         GamePanel gp = GamePanel.getInstance(sun);
         gp.setLocation(0,0);
         getLayeredPane().add(gp,new Integer(0));
         
+        // Creating and adding plant cards for different plants
         PlantCard sunflower = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_sunflower.png")).getImage());
         sunflower.setLocation(110,8);
         sunflower.setAction((ActionEvent e) -> {
@@ -55,6 +61,7 @@ public class GameWindow extends JFrame {
         fumeshroom.setAction((ActionEvent e) -> {
             gp.activePlantingBrush = PlantType.FumeShroom;
         });
+        // Adding the fumeshroom label to the window
         getLayeredPane().add(fumeshroom,new Integer(3));
         
 
@@ -66,21 +73,36 @@ public class GameWindow extends JFrame {
         getLayeredPane().add(cherrybomb,new Integer(3)); */
 
 
+        // Adding the sun label to the window
         getLayeredPane().add(sun,new Integer(2));
+        // Setting window properties
         setResizable(false);
         setVisible(true);
     }
+    
+    // Alternate constructor for GameWindow
     public GameWindow(boolean b) {
+        // Creating a new menu and setting its location
         Menu menu = new Menu();
         menu.setLocation(0,0);
+        
+        // Setting up the window properties
         setSize(1012,785);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
+        // Adding the menu to the window
         getLayeredPane().add(menu,new Integer(0));
         menu.repaint();
+        
+        // Setting window properties
         setResizable(false);
         setVisible(true);
     }
+    
+    // Static variable to store the game window instance
     static GameWindow gw;
+    
+    // Method to begin the game
     public static void begin() {
         gw.dispose();
        gw = new GameWindow();
