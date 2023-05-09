@@ -1,6 +1,4 @@
-/**
- * Created by Armin on 6/25/2016.
- */
+// The Plant class is an abstract class that serves as a base class for different types of plants
 public abstract class Plant {
 
     public int health = 300;
@@ -10,13 +8,14 @@ public abstract class Plant {
 
     public GamePanel gp;
 
-
+    // Constructor to initialize the Plant object with the given parent game panel, x and y coordinates
     public Plant(GamePanel parent,int x,int y){
         this.x = x;
         this.y = y;
-        gp = parent;
+        gp = parent;    // Set the parent game panel reference
     }
 
+    // Empty stop() method that can be overridden by subclasses to handle stopping any ongoing actions
     public void stop(){}
 
 }
