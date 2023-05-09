@@ -9,7 +9,7 @@ import java.util.Random;
 
 public final class GamePanel extends JLayeredPane implements MouseMotionListener {
     
-    private static GamePanel instance;  // Singleton instance of the GamePanel
+      // Singleton instance of the GamePanel
     // Images for game elements
     Image bgImage;
     Image peashooterImage;
@@ -60,7 +60,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
     }
 
     // Constructor for the GamePanel class
-    private GamePanel(JLabel sunScoreboard){
+    public GamePanel(JLabel sunScoreboard){
         // Initialize instance variables and set up the game
         setSize(1000,752);
         setLayout(null);
@@ -175,12 +175,6 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
     }
 
     // Singleton pattern implementation for GamePanel
-    public static GamePanel getInstance(JLabel sunScoreboard){
-        if(instance== null){
-            instance = new GamePanel(sunScoreboard);
-        }
-        return instance;
-    }
 
     // Advance the game state
     private void advance(){

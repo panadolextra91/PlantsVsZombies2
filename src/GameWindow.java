@@ -30,9 +30,9 @@ public class GameWindow extends JFrame {
         sun.setSize(60,20);
 
         // Creating and adding GamePanel to the window
-        GamePanel gp = GamePanel.getInstance(sun);
-        gp.setLocation(0,0);
-        getLayeredPane().add(gp,new Integer(0));
+        GamePanel gp = new GamePanel(sun);
+        gp.setLocation(0, 0);
+        getLayeredPane().add(gp, new Integer(0));
         
         // Creating and adding plant cards for different plants
         PlantCard sunflower = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_sunflower.png")).getImage());
