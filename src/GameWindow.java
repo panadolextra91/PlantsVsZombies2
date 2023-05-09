@@ -19,7 +19,7 @@ public class GameWindow extends JFrame {
         setSize(1012,785);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(null);
-        setTitle("Huhuhuhu");
+        setTitle("Huhuhu");
 
         JLabel sun = new JLabel("SUN");
         sun.setLocation(37,80);
