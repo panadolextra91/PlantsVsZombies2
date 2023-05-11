@@ -1,4 +1,4 @@
-# PlantsVsZombies2
+# Cats vs. Zombies
 ## Details
 **Created By:**
 - [Anh Thu](https://github.com/panadolextra91)
@@ -10,10 +10,10 @@ This is a clone of the strategy video game, [Plants vs. Zombies](https://en.wiki
 
 Made as a part of project in Object-Oriented Programming course at IU-HCMC.
 
-Uses Java and JavaFx
+Uses Java as main programming tool
 
 ## Features
 - Different levels with increasing difficulties
-- Plants available: Sunflower, Peashooter, Frozen Peashooter, Fume Shroom
+- Cats available: HapiHapiHapi, Bananacat, Applecat, Maxwell, PopCat
 - Zombies available: Normal Zombie, Conehead Zombie
-- Lots of Fun and Exciting Gameplay
+- Lots of Fun and Exciting Gameplay between cute cats memes and funny walking zombies
