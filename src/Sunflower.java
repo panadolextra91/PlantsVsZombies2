@@ -8,7 +8,7 @@ public class Sunflower extends Plant {
 
     // Constructor to initialize the Sunflower object with its position on the game panel
     public Sunflower(GamePanel parent,int x,int y) {
-        super(parent, x, y);
+        super(parent, x, y, 300);
         
         // Set up a timer to produce sun tokens every 15 seconds
         sunProduceTimer = new Timer(15000,(ActionEvent e) -> {

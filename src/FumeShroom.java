@@ -12,7 +12,7 @@ public class FumeShroom extends Plant {
     // Constructor for the FumeShroom class
     public FumeShroom(GamePanel parent, int x, int y) {
         // Call the superclass constructor
-        super(parent, x, y);
+        super(parent, x, y, 300);
 
         // Initialize and start the shootTimer with a 2000ms (2 seconds) interval
         shootTimer = new Timer(2000, (ActionEvent e) -> {

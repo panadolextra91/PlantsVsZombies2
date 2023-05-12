@@ -8,7 +8,7 @@ public class Peashooter extends Plant {
 
     // Constructor to initialize the Peashooter object with the given parent game panel, x and y coordinates
     public Peashooter(GamePanel parent,int x,int y) {
-        super(parent,x,y);  // Call the Plant superclass constructor to initialize the plant object
+        super(parent,x,y, 300);  // Call the Plant superclass constructor to initialize the plant object
         
         // Initialize the shootTimer with a 2000ms delay between pea shooting
         shootTimer = new Timer(2000,(ActionEvent e) -> {
