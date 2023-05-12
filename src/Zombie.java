@@ -41,7 +41,7 @@ public abstract class Zombie {
                     }
                     slowInt--;
                 }else {
-                    posX -= 1;
+                    posX -= speed;
                 }
             } else {    // If there's a collision, attack the plant
                 collided.assignedPlant.health -= 10;
