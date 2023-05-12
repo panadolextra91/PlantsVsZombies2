@@ -18,19 +18,30 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
     Image peaImage;
     Image freezePeaImage;
     Image fumeImage;
+    Image spikeImage;
+    Image heartImage;
     //Image cherryBombImage;
     //Image explosionImage;
     Image fumeShroomImage;
+    Image cactusImage;
+    Image wallnutImage;
+    Image wallnutEaten1Image;
+    Image wallnutEaten2Image;
+    Image popcatImage;
+    Image banacatImage;
 
     Image normalZombieImage;
     Image coneHeadZombieImage;
-    //Image deathZombieImage;
+    Image danceZombieImage;
+    Image deathZombieImage;
     Collider[] colliders;
 
     ArrayList<ArrayList<Zombie>> laneZombies;
     ArrayList<ArrayList<Pea>> lanePeas;
 
     //ArrayList<ArrayList<Bomb>> laneBombs;
+    ArrayList<ArrayList<Zombie>> laneZombies;
+    ArrayList<ArrayList<Pea>> lanePeas;
     ArrayList<Sun> activeSuns;
 
      // Timers for game events
@@ -75,13 +86,23 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         sunflowerImage = new ImageIcon(this.getClass().getResource("images/plants/sunflower.gif")).getImage();
         fumeShroomImage = new ImageIcon(this.getClass().getResource("images/plants/7kry26.gif")).getImage();
         //cherryBombImage = new ImageIcon(this.getClass().getResource("images/plants/7kqycf.gif")).getImage();
+        cactusImage = new ImageIcon(this.getClass().getResource("images/plants/cactus.gif")).getImage();
+        wallnutImage = new ImageIcon(this.getClass().getResource("images/plants/7kzwlz.gif")).getImage();
+        wallnutEaten1Image = new ImageIcon(this.getClass().getResource("images/plants/wallnuteaten1.png")).getImage();
+        wallnutEaten2Image = new ImageIcon(this.getClass().getResource("images/plants/wallnuteaten2.png")).getImage();
+        bananacatImage = new ImageIcon(this.getClass().getResource("images/plants/ezgif.com-resize.gif")).getImage();
+        popcatImage = new ImageIcon(this.getClass().getResource("images/plants/popcat.gif")).getImage();
+        
         peaImage = new ImageIcon(this.getClass().getResource("images/pea.png")).getImage();
         freezePeaImage = new ImageIcon(this.getClass().getResource("images/freezepea.png")).getImage();
         fumeImage = new ImageIcon(this.getClass().getResource("images/puff.png")).getImage();
+        spikeImage = new ImageIcon(this.getClass().getResource("images/statics_wikia_nocookie_net-latest.png")).getImage();
+        heartImage = new ImageIcon(this.getClass().getResource("images/heart.png")).getImage();
         //explosionImage = new ImageIcon(this.getClass().getResource("images/explosion.gif")).getImage();
 
         normalZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie1.gif")).getImage();
         coneHeadZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie2.gif")).getImage();
+        danceZombieImage = new Imageicon(this.getClass().getResource("images/zombies/7l3adl.gif")).getImage
         //deathZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zomdie.gif")).getImage();
 
         laneZombies = new ArrayList<>();
