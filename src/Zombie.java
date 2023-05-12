@@ -4,14 +4,14 @@ import java.awt.event.ActionEvent;
 public abstract class Zombie {
 
     // Zombie properties
-    public int health = 1000;
+    protected int health = 1000;
     public int speed = 1;
 
     private GamePanel gp;
 
-    public int posX = 1000;
-    public int myLane;
-    public boolean isMoving = true;
+    protected int posX = 1000;
+    protected int myLane;
+    protected boolean isMoving = true;
 
     // Constructor
     public Zombie(GamePanel parent,int lane){
