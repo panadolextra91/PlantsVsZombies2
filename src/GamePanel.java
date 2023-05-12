@@ -4,8 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.io.IOExeception;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public final class GamePanel extends JLayeredPane implements MouseMotionListener {
     
@@ -129,7 +132,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         advancerTimer = new Timer(60,(ActionEvent e) -> advance());
         advancerTimer.start();
 
-        sunProducer = new Timer(4000,(ActionEvent e) -> {
+        sunProducer = new Timer(5000,(ActionEvent e) -> {
             Random rnd = new Random();
             Sun sta = new Sun(this,rnd.nextInt(800)+100,0,rnd.nextInt(300)+200);
             activeSuns.add(sta);
@@ -169,6 +172,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
             }
             laneZombies.get(l).add(z);
         });
+        zombieProducer.start();
 
 
 
@@ -232,9 +236,9 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         for (int i = 0; i < 5 ; i++) {
             for(Zombie z : laneZombies.get(i)){
                 if(z instanceof NormalZombie){
-                    g.drawImage(normalZombieImage,z.posX,90+(i*120),null);
+                    g.drawImage(normalZombieImage,z.posX,109+(i*120),null);
                 }else if(z instanceof ConeHeadZombie){
-                    g.drawImage(coneHeadZombieImage,z.posX,90+(i*120),null);
+                    g.drawImage(coneHeadZombieImage,z.posX,109+(i*120),null);
                 }
             }
 
@@ -331,26 +335,20 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         progress = progress + num;
         System.out.println(progress);
 
-        if(progress == 150) {
-            zombieSpawn.start();
-            zombieProducer.stop();
-        }
-        if(progress == 550) {
-            zombieSpawn.stop();
-            zombieProducer.stop();
-           if("1".equals(LevelData.Lvl)) {
-            JOptionPane.showMessageDialog(null,"Level 1 completed !" + '\n' + "Next level.");
-            GameWindow.gw.dispose();
-            LevelData.write("2");
-            GameWindow.gw = new GameWindow();
+        if(progress >= 150) {
+            if("1".equals(levelData.Lvl)) {
+                JOptionPane.showMessageDialog(null,"Level Completed !!!" + '\n' + "Starting next Level");
+                GameWindow.gư.dispose();
+                LevelData.write("2");
+                GameWindow.gw = new GameWindow();
+            }
+            else {
+                JOptionPane.showMessageDialog(null,"level Completed !!!" + '\n' + "More Levels will come soon!!!" + '\n' + "Resetting data");
+                LevelData.write("1");
+                System.exit(0);
+            }
             progress = 0;
-            }  else {
-               JOptionPane.showMessageDialog(null,"Level 2 completed !" + '\n' + "New levels will be updated" + '\n' + "Reset data");
-               LevelData.write("1");
-               System.exit(0);
-               progress = 0;
-           }
-
+            
         }
     }
 }
