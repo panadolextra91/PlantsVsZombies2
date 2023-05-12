@@ -22,8 +22,9 @@ Uses Java
 - Levels become harder as the user progresses through the game. The cone and dancing zombies start appearing in subsequent levels, their frequency also increases. 
 
 ## Screenshots from the game
-![alt_text](https://github.com/panadolextra91/PlantsVsZombies2/tree/main/resources/images/1.png)
-![alt_text](https://github.com/panadolextra91/PlantsVsZombies2/tree/main/resources/images/2.png)
+![alt_text](https://github.com/panadolextra91/PlantsVsZombies2/blob/main/resources/images/1.png)
+
+![alt_text](https://github.com/panadolextra91/PlantsVsZombies2/blob/main/resources/images/2.png)
 
 ## License
 ### GNU General Public License v3.0
