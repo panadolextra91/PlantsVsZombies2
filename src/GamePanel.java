@@ -24,6 +24,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
 
     Image normalZombieImage;
     Image coneHeadZombieImage;
+    Image danceZombieImage;
     //Image deathZombieImage;
     Collider[] colliders;
 
@@ -82,6 +83,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
 
         normalZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie1.gif")).getImage();
         coneHeadZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie2.gif")).getImage();
+        danceZombieImage = new ImageIcon(this.getClass().getClass.getresource(name:"images/zombies/7l3adl.gif")).getImage();
         //deathZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zomdie.gif")).getImage();
 
         laneZombies = new ArrayList<>();
@@ -235,6 +237,8 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
                     g.drawImage(normalZombieImage,z.posX,90+(i*120),null);
                 }else if(z instanceof ConeHeadZombie){
                     g.drawImage(coneHeadZombieImage,z.posX,90+(i*120),null);
+                    else if (z instanceof DanceZombie) {
+                        g.drawImage(danceZombieImage, z.posX, y: 55+(i*120), observer: null);
                 }
             }
 
