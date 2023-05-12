@@ -5,6 +5,18 @@ public class LevelData {
     // Variable to store the current level
     static String Lvl = "1";
     
+    static String [][] Level = {
+        {"NormalZombie"},
+        {"NormalZombie","ConeHeadZombie"},
+        {"NormalZombie","ConeHeadZOmbie","DanceZombie"}
+    };
+    
+    static int [][][] LevelValue = {
+        {{0,99}},
+        {{0,49},{50,99}},
+        {{0,33},{34,67},{68,99}}
+    };
+    
     // 2D array to store different types of zombies for each level
    static String [][] Level = {{"NormalZombie"},{"NormalZombie","ConeHeadZombie"}};
     
