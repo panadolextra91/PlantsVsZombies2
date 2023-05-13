@@ -238,9 +238,9 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
                 if (p instanceof Wallnut) {
                     if (p.health <= 1000 && p.health >= 500) {
                         g.drawImage(wallnutImage, 50 + (i%9)*100, 100 + (i/9)*120, null);
-                    } else if (p.health < 500 && p.health >= 200) {
+                    } else if (p.health < 2500 && p.health >= 1000) {
                         g.drawImage(wallnutEaten1Image, 50 + (i%9)*100, 100 + (i/9)*120, null);
-                    } else if (p.health < 200 ) {
+                    } else if (p.health < 1000 ) {
                         g.drawImage(wallnutEaten2Image, 50 + (i%9)*100, 100 + (i/9)*120, null);
                     }
                 }
