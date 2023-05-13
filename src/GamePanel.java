@@ -22,6 +22,10 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
     //Image explosionImage;
     Image fumeShroomImage;
 
+    Image wallnutImage;
+    Image wallnutEaten1Image;
+    Image wallnutEaten2Image;
+    
     Image normalZombieImage;
     Image coneHeadZombieImage;
     //Image deathZombieImage;
@@ -79,6 +83,11 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         freezePeaImage = new ImageIcon(this.getClass().getResource("images/freezepea.png")).getImage();
         fumeImage = new ImageIcon(this.getClass().getResource("images/puff.png")).getImage();
         //explosionImage = new ImageIcon(this.getClass().getResource("images/explosion.gif")).getImage();
+        
+        wallnutImage = new ImageIcon(this.getClass().getResource("images/plants/7kzwlz.gif")).getImage();
+        wallnutEaten1Image = new ImageIcon(this.getClass().getResource("images/plants/wallnuteaten1.png")).getImage();
+        wallnutEaten2Image = new ImageIcon(this.getClass().getResource("images/plants/wallnuteaten2.png")).getImage();
+
 
         normalZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie1.gif")).getImage();
         coneHeadZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie2.gif")).getImage();
@@ -226,6 +235,15 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
                 /*if(p instanceof CherryBomb) {
                     g.drawImage(cherryBombImage, 60 + (i%9)*100, 129 + (i/9)*120, null);
                 } */
+                if (p instanceof Wallnut) {
+                    if (p.health <= 1000 && p.health >= 500) {
+                        g.drawImage(wallnutImage, 50 + (i%9)*100, 100 + (i/9)*120, null);
+                    } else if (p.health < 500 && p.health >= 200) {
+                        g.drawImage(wallnutEaten1Image, 50 + (i%9)*100, 100 + (i/9)*120, null);
+                    } else if (p.health < 200 ) {
+                        g.drawImage(wallnutEaten2Image, 50 + (i%9)*100, 100 + (i/9)*120, null);
+                    }
+                }
             }
         }
 
@@ -301,6 +319,14 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
                     setSunScore(getSunScore()-75);
                 }
             }
+            
+            if (activePlantingBrush == GameWindow.PlantType.Wallnut) {
+                if (getSunScore() >= 50) {
+                    colliders[x + y * 9].setPlant(new Wallnut(GamePanel.this, x, y, 2500));
+                    setSunScore(getSunScore()-50);
+                }
+            }
+
 
             /*if(activePlantingBrush == GameWindow.PlantType.CherryBomb){
                 if(getSunScore() >= 150) {
