@@ -82,6 +82,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
 
         normalZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie1.gif")).getImage();
         coneHeadZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie2.gif")).getImage();
+        danceZombieImage = new ImageIcon(this.getClass().getResource("image/zombies/713adl.gif")).getImage();
         //deathZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zomdie.gif")).getImage();
 
         laneZombies = new ArrayList<>();
@@ -129,7 +130,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         advancerTimer = new Timer(60,(ActionEvent e) -> advance());
         advancerTimer.start();
 
-        sunProducer = new Timer(4000,(ActionEvent e) -> {
+        sunProducer = new Timer(5000,(ActionEvent e) -> {
             Random rnd = new Random();
             Sun sta = new Sun(this,rnd.nextInt(800)+100,0,rnd.nextInt(300)+200);
             activeSuns.add(sta);
@@ -154,7 +155,7 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         });
         zombieProducer.start();
 
-        zombieSpawn = new Timer(1500,(ActionEvent e) -> {
+        zombieSpawn = new Timer(2000,(ActionEvent e) -> {
             Random rnd = new Random();
             LevelData lvl = new LevelData();
             String [] Level = lvl.Level[Integer.parseInt(lvl.Lvl)-1];
@@ -181,11 +182,17 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         for (int i = 0; i < 5 ; i++) {
             for(Zombie z : laneZombies.get(i)){
                 z.advance();
+                if(progress >= 550) {
+                    z.stopAdvance();
+                }
             }
 
             for (int j = 0; j < lanePeas.get(i).size(); j++) {
                 Pea p = lanePeas.get(i).get(j);
                 p.advance();
+                if(progress >= 550) {
+                    p.stopAdvance();
+                }
             }
             /*for (int j = 0; i < laneBombs.get(i).size(); j++) {
                 Bomb b = laneBombs.get(i).get(j);
@@ -198,6 +205,9 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
             activeSuns.get(i).advance();
         }
 
+    }
+    protected void replace(Graphics g) {
+        g.dispose();
     }
 
     // Paint the game elements on the screen
@@ -223,6 +233,23 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
                 if (p instanceof FumeShroom) {
                     g.drawImage(fumeShroomImage, 60 +(i%9)*100, 129 + (i/9)*120, null);
                 }
+                if (p instanceof Cactus) {
+                    g.drawImage(cactusImage, 40 + (i%9)*100, 100 + (i/9)*120, null));
+                }
+                if (p instanceof Wallnut) {
+                   if (p.health <= 1000 && p.health >= 500) {
+                       g.drawImage(wallnutImage, 50 + (i%9)*100, 100 + (i/9)*120, null);
+                   } else if (p.health < 500 && p.health >= 200) {
+                       g.drawImage(wallnutEaten1Image, 50 + (i%9)*100, 100 + (i/9)*120, null);
+                   } else if (p.health < 200) {
+                       g.drawImage(wallnutEaten2Image, 50 + (i%9)*100, 100 + (i/9)*120, null);
+                   }
+                    
+                   /*if(p instanceof Popcat) {
+                       g.drawImage(popcatImage, 18 + (i%9)*100, 70 + (i/9)*120, null);
+                   }*/
+                   
+             
                 /*if(p instanceof CherryBomb) {
                     g.drawImage(cherryBombImage, 60 + (i%9)*100, 129 + (i/9)*120, null);
                 } */
