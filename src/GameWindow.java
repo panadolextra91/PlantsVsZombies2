@@ -64,6 +64,12 @@ public class GameWindow extends JFrame {
         // Adding the fumeshroom label to the window
         getLayeredPane().add(fumeshroom,new Integer(3));
         
+        PlantCard wallnut = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_wallnut.png")).getImage());
+        wallnut.setLocation(435,8);
+        wallnut.setAction((ActionEvent e) -> {
+            gp.activePlantingBrush = PlantType.Wallnut;
+        });
+        getLayeredPane().add(wallnut,new Integer(3));
 
         /*PlantCard cherrybomb = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_cherrybomb.png")).getImage());
         cherrybomb.setLocation(305,8);
