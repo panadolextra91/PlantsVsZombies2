@@ -9,6 +9,9 @@ public class GameWindow extends JFrame {
         Sunflower,
         Peashooter,
         FreezePeashooter,
+        
+        Wallnut,
+        
         FumeShroom;
         //CherryBomb;
 
