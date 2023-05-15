@@ -220,9 +220,24 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
                 if(p instanceof Sunflower){
                     g.drawImage(sunflowerImage,60 + (i%9)*100,129 + (i/9)*120,null);
                 }
-                if (p instanceof FumeShroom) {
+                if(p instanceof FumeShroom) {
                     g.drawImage(fumeShroomImage, 60 +(i%9)*100, 129 + (i/9)*120, null);
                 }
+                if(p instanceof Cactus) {
+                    g.drawImage(cactusImage, 40 + (i%9)*100, 100 + (i/9)*120, null);
+                }
+                if(p instanceof Wallnut) {
+                    if(p.health <= 1000 && p.health >=500) {
+                        g.drawImage(wallnutImage, 50 + (i%9)*100, 100 + (i/9)*120, null);
+                    else if (p.health < 500 && p.health >= 200) {
+                        g.drawImage(wallnutEaten1Image, 50 (i%9)*120, 100 + (i/9)*120, null);
+                    else if (p.health < 200) {
+                        g.drawImage(wallnutEaten2Image, 50 + (i%9)*100, 100 + (i/9)*120, null);
+                }
+                        
+                /*if(p instanceof Popcat) {
+                    g.drawImage(popcatImage, 18 + (i%9)*100, 70 + (i/9)*120, null);
+                }*/
                 /*if(p instanceof CherryBomb) {
                     g.drawImage(cherryBombImage, 60 + (i%9)*100, 129 + (i/9)*120, null);
                 } */
@@ -232,9 +247,20 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         for (int i = 0; i < 5 ; i++) {
             for(Zombie z : laneZombies.get(i)){
                 if(z instanceof NormalZombie){
-                    g.drawImage(normalZombieImage,z.posX,90+(i*120),null);
+                    if(z.health <= 1000 && z.health > 0) {
+                        g.drawImage(normalZombieImage,z.posX,90+(i*120),null);
+                    } //else if (z.health <= 0 && z.isDead) {
+                      //g.drawImage(deathZombieImage, z.posX-60, 90+(i*120),null);
+                      //z.isDead = true;
+                      //z.isMoving = false;
+                    
+                    //}
+                    //g.drawImage(normalZombieImage,z.posX,90+(i*120),null);
                 }else if(z instanceof ConeHeadZombie){
                     g.drawImage(coneHeadZombieImage,z.posX,90+(i*120),null);
+                }
+                else if( z instanceof DanceZombie){
+                    g.drawImage(danceZombieImage,z.posX,55+(i*120),null);
                 }
             }
 
@@ -244,6 +270,8 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
                     g.drawImage(freezePeaImage, p.posX, 130 + (i * 120), null);
                 }else if (p instanceof Puff) {
                     g.drawImage(fumeImage, p.posX + 20, 140 + (i * 120), null);
+                } else if (p instanceof Spike) {
+                    g.drawimage(spikeImage, p.posX + 30, 140 +(i*120), null);
                 } else {
                     g.drawImage(peaImage, p.posX, 130 + (i * 120), null);
                 }
@@ -301,6 +329,24 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
                     setSunScore(getSunScore()-75);
                 }
             }
+            if(activePlantingBrush == GameWindow.PlantType.Cactus) {
+                if (getSunScore() >= 125) {
+                    colliders[x + y * 9].setPlant(newCactus(GamePanel.this, x, y, 300));
+                    setSunScore(getSunScore()-125);
+                }
+            }
+            if(activePlantingBrush == GameWindow.PlantType.Wallnut) {
+                if (getSunScore() >= 50) {
+                    colliders[x + y*9].setPlant(new Wallnut(GamePanel.this, x, y, 500));
+                    setSunScore(getSunScore()-50);
+                }
+            }
+            if(activePlantingBrush == GameWindow.PlantType.Popcat) {
+                if (getSunScore() >= 50) {
+                    colliders[x + y*9].setPlant(new Popcat(GamePanel.this, x, y,300));
+                    setSunScore(getSunScore()-50);
+                }
+            }
 
             /*if(activePlantingBrush == GameWindow.PlantType.CherryBomb){
                 if(getSunScore() >= 150) {
@@ -331,25 +377,29 @@ public final class GamePanel extends JLayeredPane implements MouseMotionListener
         progress = progress + num;
         System.out.println(progress);
 
-        if(progress == 150) {
+        if(progress == 200) {
             zombieSpawn.start();
             zombieProducer.stop();
         }
-        if(progress == 550) {
+        if(progress >= 550) {
             zombieSpawn.stop();
             zombieProducer.stop();
-           if("1".equals(LevelData.Lvl)) {
-            JOptionPane.showMessageDialog(null,"Level 1 completed !" + '\n' + "Next level.");
-            GameWindow.gw.dispose();
-            LevelData.write("2");
-            GameWindow.gw = new GameWindow();
             progress = 0;
-            }  else {
+           if("1".equals(LevelData.Lvl)) {
+               JOptionPane.showMessageDialog(null,"Level 1 completed !" + '\n' + "Next level.");
+               GameWindow.gw.dispose();
+               LevelData.write("2");
+               GameWindow.gw = new GameWindow();
+           } else if ("2".equals(LevelData.Lv1)) {
                JOptionPane.showMessageDialog(null,"Level 2 completed !" + '\n' + "New levels will be updated" + '\n' + "Reset data");
+               LevelData.write("3");
+               GameWindow.gw = new GameWindow();
+           } else {
+               JOptionPane.showMessageDialog(null,"Congratulations! You have completed all levels!" + '\n' + "Resetting date");
                LevelData.write("1");
                System.exit(0);
-               progress = 0;
            }
+           progress = 0;
 
         }
     }
