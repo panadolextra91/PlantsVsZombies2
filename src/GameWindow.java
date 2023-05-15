@@ -8,10 +8,8 @@ public class GameWindow extends JFrame {
         None,
         Sunflower,
         Peashooter,
-        FreezePeashooter,
-        
-        Wallnut,
-        
+        FreezePeashooter,        
+        Wallnut,        
         FumeShroom;
         //CherryBomb;
 
@@ -68,7 +66,7 @@ public class GameWindow extends JFrame {
         getLayeredPane().add(fumeshroom,new Integer(3));
         
         PlantCard wallnut = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_wallnut.png")).getImage());
-        wallnut.setLocation(435,8);
+        wallnut.setLocation(370,8);
         wallnut.setAction((ActionEvent e) -> {
             gp.activePlantingBrush = PlantType.Wallnut;
         });
