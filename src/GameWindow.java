@@ -10,8 +10,9 @@ public class GameWindow extends JFrame {
         Peashooter,
         FreezePeashooter,        
         Wallnut,        
-        FumeShroom;
+        FumeShroom,
         //CherryBomb;
+        Cactus;
 
     }
 
@@ -71,6 +72,13 @@ public class GameWindow extends JFrame {
             gp.activePlantingBrush = PlantType.Wallnut;
         });
         getLayeredPane().add(wallnut,new Integer(3));
+        
+        PlantCard cactus = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_cactus.png")).getImage());
+        cactus.setLocation(370,8);
+        cactus.setAction((ActionEvent e) -> {
+            gp.activePlantingBrush = PlantType.Cactus;
+        });
+        getLayeredPane().add(cactus, new Inetger(3));
 
         /*PlantCard cherrybomb = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_cherrybomb.png")).getImage());
         cherrybomb.setLocation(305,8);
