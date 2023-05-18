@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent:
 
 public class Pea {
 
@@ -33,6 +34,8 @@ public class Pea {
                     z.health -= 250;
                 } else if (z instanceof ConeHeadZombie) {
                     z.health -= 200;
+                } else if (z instanceof DanceZombie) {
+                    z.health -=190;
                 }
                 
                 // Flag to check if the zombie should be removed from the game panel
@@ -55,6 +58,9 @@ public class Pea {
         
         // Move the pea forward by 15 units on the x-axis
         posX += 15;
+    }
+    public void stopAdvance() {
+        GamePanel.progress=0;
     }
 
 }
