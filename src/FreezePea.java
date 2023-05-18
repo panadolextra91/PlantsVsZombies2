@@ -34,6 +34,10 @@ public class FreezePea extends Pea {
                 else if (z instanceof ConeHeadZombie) {
                     z.health -= 200;
                 }
+                // If the zombie is a DanceZombie, reduce its health by 190
+                else if 9z instanceof DanceZombie) {
+                    z.health -=190;
+                }
 
                 // Slow down the zombie
                 z.slow();
@@ -42,10 +46,11 @@ public class FreezePea extends Pea {
                 boolean exit = false;
 
                 // If the zombie's health is below 0, remove it and update the progress
-                if(z.health < 0){
+                if(z.health <= 0){
                     System.out.println("ZOMBIE DIE");
-                    GamePanel.setProgress(10);
                     gp.laneZombies.get(myLane).remove(i);
+                    GamePanel.setProgress(10);
+                    gp.deathZombieImage.flush();
                     exit = true;
                 }
 
@@ -59,5 +64,8 @@ public class FreezePea extends Pea {
 
         // Move the pea forward by 15 units
         posX += 15;
+    }
+    public void stopAdvance() {
+        GamePanel.progress=0;
     }
 }
