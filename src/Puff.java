@@ -27,14 +27,18 @@ public class Puff extends Pea{
                 else if (z instanceof ConeHeadZombie) {
                     z.health -= 300;
                 }
+                // If the zombie is a DanceZombie, reduce its health by 190
+                else if (z instanceof DanceZombie) {
+                    z.health -= 190;
+                }
                 
                 boolean exit = false;
                 // If the zombie's health is below zero, remove it from the lane and update game progress
                 if(z.health < 0){
                     System.out.println("ZOMBIE DIE");
-                    GamePanel.setProgress(10);
                     gp.laneZombies.get(myLane).remove(i);
-
+                    GamePanel.setProgress(10);
+                    gp.deathZombieImage.flush();
                     exit = true;
                 }
                 
@@ -51,6 +55,9 @@ public class Puff extends Pea{
         
         // Move the Puff forward
         posX += 15;
+    }
+    public void stopAdvance() {
+        GamePanel.progress=0;
     }
 
 }
