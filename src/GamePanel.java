@@ -7,7 +7,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-public final class GamePanel extends JLayeredPane implements MouseMotionListener {
+public class GamePanel extends JLayeredPane implements MouseMotionListener {
     
       // Singleton instance of the GamePanel
     // Images for game elements

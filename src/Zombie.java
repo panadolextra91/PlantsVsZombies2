@@ -41,7 +41,7 @@ public abstract class Zombie {
                     }
                     slowInt--;
                 }else {
-                    posX -= speed;
+                    posX -= 20;
                 }
             } else {    // If there's a collision, attack the plant
                 collided.assignedPlant.health -= 10;
@@ -54,8 +54,9 @@ public abstract class Zombie {
             if (posX < 0) {
                 isMoving = false;
                 JOptionPane.showMessageDialog(gp,"Bye bye!" + '\n' + "Starting the level again");
-                GameWindow.gw.dispose();
-                GameWindow.gw = new GameWindow();
+                System.out.println("Restart");
+                System.exit(0);
+                //GameWindow.gw = new GameWindow();
             }
         }
     }

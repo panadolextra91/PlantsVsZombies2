@@ -100,7 +100,7 @@ public class GameWindow extends JFrame {
     }
     
     // Static variable to store the game window instance
-    static GameWindow gw;
+    public static GameWindow gw;
     
     // Method to begin the game
     public static void begin() {
