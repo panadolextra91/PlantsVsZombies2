@@ -9,7 +9,8 @@ public class GameWindow extends JFrame {
         Sunflower,
         Peashooter,
         FreezePeashooter,        
-        Wallnut,        
+        Wallnut,
+        Cactus,
         FumeShroom;
         //CherryBomb;
 
@@ -78,6 +79,13 @@ public class GameWindow extends JFrame {
             gp.activePlantingBrush = PlantType.CherryBomb;
         });
         getLayeredPane().add(cherrybomb,new Integer(3)); */
+        
+        PlantCard cactus = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_cactus.png")).getImage());
+        cactus.setLocation(435,8);
+        cactus.setAction((ActionEvent e) -> {
+            gp.activePlantingBrush = PlantType.Cactus;
+        });
+        getLayeredPane().add(cactus,new Integer(3));
 
 
         // Adding the sun label to the window
