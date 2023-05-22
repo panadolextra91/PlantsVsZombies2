@@ -27,6 +27,9 @@ public class Puff extends Pea{
                 else if (z instanceof ConeHeadZombie) {
                     z.health -= 300;
                 }
+                else if (z instanceof DanceZombie) {
+                    z.health -= 250;
+                }
                 
                 boolean exit = false;
                 // If the zombie's health is below zero, remove it from the lane and update game progress
