@@ -33,6 +33,8 @@ public class Pea {
                     z.health -= 250;
                 } else if (z instanceof ConeHeadZombie) {
                     z.health -= 200;
+                } else if (z instanceof DanceZombie) {
+                    z.health -= 150;
                 }
                 
                 // Flag to check if the zombie should be removed from the game panel
