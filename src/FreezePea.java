@@ -34,6 +34,9 @@ public class FreezePea extends Pea {
                 else if (z instanceof ConeHeadZombie) {
                     z.health -= 200;
                 }
+                else if (z instanceof DanceZombie) {
+                    z.health -= 150;
+                }
 
                 // Slow down the zombie
                 z.slow();
