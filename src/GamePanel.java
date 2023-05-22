@@ -21,6 +21,9 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
     //Image cherryBombImage;
     //Image explosionImage;
     Image fumeShroomImage;
+    
+    Image cactusImage;
+    Image spikeImage;
 
     Image wallnutImage;
     Image wallnutEaten1Image;
@@ -29,6 +32,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
     Image normalZombieImage;
     Image coneHeadZombieImage;
     //Image deathZombieImage;
+    Image danceZombieImage;
     Collider[] colliders;
 
     ArrayList<ArrayList<Zombie>> laneZombies;
@@ -78,11 +82,14 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         freezePeashooterImage = new ImageIcon(this.getClass().getResource("images/plants/freezepeashooter.gif")).getImage();
         sunflowerImage = new ImageIcon(this.getClass().getResource("images/plants/sunflower.gif")).getImage();
         fumeShroomImage = new ImageIcon(this.getClass().getResource("images/plants/7kry26.gif")).getImage();
+        
+        cactusImage = new ImageIcon(this.getClass().getResource("images/plants/cactus.gif")).getImage();
         //cherryBombImage = new ImageIcon(this.getClass().getResource("images/plants/7kqycf.gif")).getImage();
         peaImage = new ImageIcon(this.getClass().getResource("images/pea.png")).getImage();
         freezePeaImage = new ImageIcon(this.getClass().getResource("images/freezepea.png")).getImage();
         fumeImage = new ImageIcon(this.getClass().getResource("images/puff.png")).getImage();
         //explosionImage = new ImageIcon(this.getClass().getResource("images/explosion.gif")).getImage();
+        spikeImage = new ImageIcon(this.getClass().getResource("images/static_wikia_nocookie_net-latest.png")).getImage();
         
         wallnutImage = new ImageIcon(this.getClass().getResource("images/plants/7kzwlz.gif")).getImage();
         wallnutEaten1Image = new ImageIcon(this.getClass().getResource("images/plants/wallnuteaten1.png")).getImage();
@@ -91,6 +98,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
 
         normalZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie1.gif")).getImage();
         coneHeadZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie2.gif")).getImage();
+        danceZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/7l3adl.gif")).getImage();
         //deathZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zomdie.gif")).getImage();
 
         laneZombies = new ArrayList<>();
@@ -244,6 +252,10 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
                         g.drawImage(wallnutEaten2Image, 50 + (i%9)*100, 100 + (i/9)*120, null);
                     }
                 }
+                
+                if (p instanceof Cactus) {
+                    g.drawImage(cactusImage, 60 +(i%9)*100, 120 + (i/9)*120,null);
+                }
             }
         }
 
@@ -253,6 +265,8 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
                     g.drawImage(normalZombieImage,z.posX,90+(i*120),null);
                 }else if(z instanceof ConeHeadZombie){
                     g.drawImage(coneHeadZombieImage,z.posX,90+(i*120),null);
+                }else if(z instanceof DanceZombie){
+                    g.drawImage(danceZombieImage,z.posX,90+(i*120),null);
                 }
             }
 
@@ -262,6 +276,8 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
                     g.drawImage(freezePeaImage, p.posX, 130 + (i * 120), null);
                 }else if (p instanceof Puff) {
                     g.drawImage(fumeImage, p.posX + 20, 140 + (i * 120), null);
+                }else if (p instanceof Spike) {
+                    g.drawImage(spikeImage, p.posX + 20, 140 + (i * 120), null);
                 } else {
                     g.drawImage(peaImage, p.posX, 130 + (i * 120), null);
                 }
@@ -324,6 +340,13 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
                 if (getSunScore() >= 50) {
                     colliders[x + y * 9].setPlant(new Wallnut(GamePanel.this, x, y, 2500));
                     setSunScore(getSunScore()-50);
+                }
+            }
+            
+            if (activePlantingBrush == GameWindow.PlantType.Cactus) {
+                if (getSunScore() >= 125) {
+                    colliders[x + y * 9].setPlant(new Cactus(GamePanel.this, x, y));
+                    setSunScore(getSunScore()-125);
                 }
             }
 
