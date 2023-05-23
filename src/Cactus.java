@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
-public class Cactus extends Plants{
+public class Cactus extends Plant{
   // Timer that controls the shooting intervals of the Fume Shroom
     public Timer shootTimer;
 
