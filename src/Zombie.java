@@ -41,7 +41,7 @@ public abstract class Zombie {
                     }
                     slowInt--;
                 }else {
-                    posX -= 20;
+                    posX -= speed;
                 }
             } else {    // If there's a collision, attack the plant
                 collided.assignedPlant.health -= 10;
@@ -79,6 +79,8 @@ public abstract class Zombie {
                                  break;
            //case "DeadZombie" : z = new DeadZombie(parent,lane);
            //break;
+           case "DanceZombie" : z = new DanceZombie(parent,lane);
+                                 break;
            default:
                throw new IllegalArgumentException("Invalid Zombie type: "+ type);
     }
