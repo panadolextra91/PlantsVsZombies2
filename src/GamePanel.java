@@ -96,9 +96,9 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         wallnutEaten2Image = new ImageIcon(this.getClass().getResource("images/plants/wallnuteaten2.png")).getImage();
 
 
-        normalZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie1.gif")).getImage();
+        normalZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/Zombiefly_new.gif")).getImage();
         coneHeadZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zombie2.gif")).getImage();
-        danceZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/7l3adl.gif")).getImage();
+        danceZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/dancezombie_2.gif")).getImage();
         //deathZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/zomdie.gif")).getImage();
 
         laneZombies = new ArrayList<>();
