@@ -17,6 +17,8 @@ public abstract class Zombie {
     public Zombie(GamePanel parent,int lane){
         this.gp = parent;
         myLane = lane;
+
+
     }
 
     // Advance method to move the zombie forward
@@ -70,16 +72,19 @@ public abstract class Zombie {
     
     // Factory method to create a new Zombie object based on the type parameter
     public static Zombie getZombie(String type,GamePanel parent, int lane) {
-//         Zombie z = new Zombie(parent,lane);
         Zombie z = null;
        switch(type) {
            case "NormalZombie" : z = new NormalZombie(parent,lane);
+            System.out.println("Zombie type: NormalZombie");
                                  break;
            case "ConeHeadZombie" : z = new ConeHeadZombie(parent,lane);
+            System.out.println("Zombie type: ConeHeadZombie");
                                  break;
-           //case "DeadZombie" : z = new DeadZombie(parent,lane);
-           //break;
            case "DanceZombie" : z = new DanceZombie(parent,lane);
+            System.out.println("Zombie type: DanceZombie");
+                                 break;
+            case "FlyZombie" : z = new FlyZombie(parent,lane);
+            System.out.println("Zombie type: FlyZombie");
                                  break;
            default:
                throw new IllegalArgumentException("Invalid Zombie type: "+ type);
