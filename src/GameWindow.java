@@ -12,11 +12,9 @@ public class GameWindow extends JFrame {
         Wallnut,
         Cactus,
         FumeShroom;
-        //CherryBomb;
 
     }
 
-    //PlantType activePlantingBrush = PlantType.None;
     
     // Constructor for GameWindow
     public GameWindow(){
@@ -73,12 +71,6 @@ public class GameWindow extends JFrame {
         });
         getLayeredPane().add(wallnut,new Integer(3));
 
-        /*PlantCard cherrybomb = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_cherrybomb.png")).getImage());
-        cherrybomb.setLocation(305,8);
-        cherrybomb.setAction((ActionEvent e) -> {
-            gp.activePlantingBrush = PlantType.CherryBomb;
-        });
-        getLayeredPane().add(cherrybomb,new Integer(3)); */
         
         PlantCard cactus = new PlantCard(new ImageIcon(this.getClass().getResource("images/cards/card_cactus.png")).getImage());
         cactus.setLocation(435,8);
