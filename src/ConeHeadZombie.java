@@ -21,7 +21,7 @@ public class ConeHeadZombie extends Zombie {
         int index = random.nextInt(2);
 
         // Select the image path based on the random index
-        String imagePath = index == 0 ? "images/zombies/zombie1.gif" : "images/zombies/zombie2.gif";
+        String imagePath = index == 0 ? "images/zombies/Zombiefly_new.gif" : "images/zombies/zombie2.gif";
 
         // Debugging line to print the image path
         System.out.println("Image path: " + imagePath);
