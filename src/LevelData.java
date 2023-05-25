@@ -7,10 +7,12 @@ public class LevelData {
     
     // 2D array to store different types of zombies for each level
    static String [][] Level = {{"NormalZombie"},
-                               {"NormalZombie","ConeHeadZombie","DanceZombie"}};
+                               {"NormalZombie","ConeHeadZombie","DanceZombie"},
+                               {"ConeHeadZombie","DanceZombie","FlyZombie"}};
     
     // 3D array to store spawning frequency ranges for each zombie type in each level
    static int [][][] LevelValue = {{{0,99}},
+                                   {{0,32},{33,67},{68,99}},
                                    {{0,32},{33,67},{68,99}}} ;
     
     // Constructor for LevelData
