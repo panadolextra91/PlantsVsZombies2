@@ -5,7 +5,7 @@ public class Spike extends Pea{
         super(parent,lane,startX);
     }
 
-    // Override the advance method to increase the damage dealt by the Puff
+    // Override the advance method to increase the damage dealt by the Spike
     @Override
     public void advance(){
         // Create a rectangle representing the Puff's position
@@ -30,6 +30,9 @@ public class Spike extends Pea{
                 else if (z instanceof DanceZombie) {
                     z.health -= 300;
                 }
+                else if (z instanceof FlyZombie) {
+                    z.health -= 250;
+                }
                 
                 boolean exit = false;
                 // If the zombie's health is below zero, remove it from the lane and update game progress
@@ -41,17 +44,14 @@ public class Spike extends Pea{
                     exit = true;
                 }
                 
-                // Remove the Puff from the lane
+                // Remove the Spike from the lane
                 gp.lanePeas.get(myLane).remove(this);
                 
                 // If a zombie was killed, exit the loop
                 if(exit) break;
             }
         }
-        /*if(posX > 2000){
-            gp.lanePeas.get(myLane).remove(this);
-        }*/
-        
+
         // Move the Puff forward
         posX += 15;
     }
