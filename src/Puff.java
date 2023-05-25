@@ -30,6 +30,9 @@ public class Puff extends Pea{
                 else if (z instanceof DanceZombie) {
                     z.health -= 250;
                 }
+                else if (z instanceof FlyZombie) {
+                    z.health -= 200;
+                }
                 
                 boolean exit = false;
                 // If the zombie's health is below zero, remove it from the lane and update game progress
@@ -48,9 +51,6 @@ public class Puff extends Pea{
                 if(exit) break;
             }
         }
-        /*if(posX > 2000){
-            gp.lanePeas.get(myLane).remove(this);
-        }*/
         
         // Move the Puff forward
         posX += 15;
