@@ -19,7 +19,7 @@ public class DanceZombie extends Zombie{
         int index = random.nextInt(2);
 
         // Select the image path based on the random index
-        String imagePath = index == 0 ? "images/zombies/zombie2.gif" : "src/images/zombies/7l3adl.gif";
+        String imagePath = index == 0 ? "images/zombies/zombie2.gif" : "images/zombies/dancezombie_2.gif";
 
         // Debugging line to print the image path
         System.out.println("Image path: " + imagePath);
