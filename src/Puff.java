@@ -1,3 +1,10 @@
+/* Name: NH1 - TTH2
+Huynh Ngoc Anh Thu, ITCSIU21034
+Pham Nguyen Dang Khoi, ITCSIU21196
+Nguyen Tien Son, ITITIU21297
+Dinh Hoang Thao Nguyen, ITITWE2008
+Purpose: A simple version of the game Plants VS Zombies
+*/
 import java.awt.*;
 
 // Constructor to initialize the Puff object with the given lane and starting position

@@ -1,3 +1,10 @@
+/* Name: NH1 - TTH2
+Huynh Ngoc Anh Thu, ITCSIU21034
+Pham Nguyen Dang Khoi, ITCSIU21196
+Nguyen Tien Son, ITITIU21297
+Dinh Hoang Thao Nguyen, ITITWE2008
+Purpose: A simple version of the game Plants VS Zombies
+*/
 import java.awt.*;
 
 /**
@@ -40,13 +47,10 @@ public class FreezePea extends Pea {
                 else if (z instanceof FlyZombie) {
                     z.health -= 100;
                 }
-
                 // Slow down the zombie
                 z.slow();
-
                 // Initialize a flag to indicate whether the zombie has died
                 boolean exit = false;
-
                 // If the zombie's health is below 0, remove it and update the progress
                 if(z.health < 0){
                     System.out.println("ZOMBIE DIE");
@@ -54,15 +58,12 @@ public class FreezePea extends Pea {
                     gp.laneZombies.get(myLane).remove(i);
                     exit = true;
                 }
-
                 // Remove the FreezePea instance from the lane
                 gp.lanePeas.get(myLane).remove(this);
-
                 // If the zombie has died, break out of the loop
                 if(exit) break;
             }
         }
-
         // Move the pea forward by 15 units
         posX += 15;
     }

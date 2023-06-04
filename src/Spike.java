@@ -8,16 +8,16 @@ public class Spike extends Pea{
     // Override the advance method to increase the damage dealt by the Spike
     @Override
     public void advance(){
-        // Create a rectangle representing the Puff's position
-        Rectangle pRect = new Rectangle(posX,130+myLane*120,28,28);
+        // Create a rectangle representing the Spike's position
+        Rectangle sRect = new Rectangle(posX,130+myLane*120,28,28);
         
         // Iterate through the zombies in the current lane
         for (int i = 0; i < gp.laneZombies.get(myLane).size(); i++) {
             Zombie z = gp.laneZombies.get(myLane).get(i);
             Rectangle zRect = new Rectangle(z.posX,109 + myLane*120,400,120);
             
-            // Check if the Puff's rectangle intersects with a zombie's rectangle
-            if(pRect.intersects(zRect)) {
+            // Check if the Spike's rectangle intersects with a zombie's rectangle
+            if(sRect.intersects(zRect)) {
                 // If the zombie is a NormalZombie, reduce its health by 400
                 if (z instanceof NormalZombie) {
                     z.health -= 400;
@@ -52,7 +52,7 @@ public class Spike extends Pea{
             }
         }
 
-        // Move the Puff forward
+        // Move the Spike forward
         posX += 15;
     }
 }

@@ -1,3 +1,10 @@
+/* Name: NH1 - TTH2
+Huynh Ngoc Anh Thu, ITCSIU21034
+Pham Nguyen Dang Khoi, ITCSIU21196
+Nguyen Tien Son, ITITIU21297
+Dinh Hoang Thao Nguyen, ITITWE2008
+Purpose: A simple version of the game Plants VS Zombies
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -76,6 +83,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         this.sunScoreboard = sunScoreboard;
         setSunScore(150);  //pool avalie
 
+        //Set images
         bgImage  = new ImageIcon(this.getClass().getResource("images/mainBG.png")).getImage();
 
         peashooterImage = new ImageIcon(this.getClass().getResource("images/plants/peashooter.gif")).getImage();
@@ -99,7 +107,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         danceZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/dancezombie_2.gif")).getImage();
         flyZombieImage = new ImageIcon(this.getClass().getResource("images/zombies/Zombiefly_new.gif")).getImage();
 
-
+        //Lanes for zombies
         laneZombies = new ArrayList<>();
         laneZombies.add(new ArrayList<>()); //line 1
         laneZombies.add(new ArrayList<>()); //line 2
@@ -107,6 +115,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         laneZombies.add(new ArrayList<>()); //line 4
         laneZombies.add(new ArrayList<>()); //line 5
 
+        //Lanes for plants and their bullets
         lanePeas = new ArrayList<>();
         lanePeas.add(new ArrayList<>()); //line 1
         lanePeas.add(new ArrayList<>()); //line 2
@@ -124,17 +133,20 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
             add(a,new Integer(0));
         }
 
-
+        //Array list for sun
         activeSuns = new ArrayList<>();
 
+        //Timer for repaint
         redrawTimer = new Timer(25,(ActionEvent e) -> {
             repaint();
         });
         redrawTimer.start();
 
+        //Timer for advance methods
         advancerTimer = new Timer(60,(ActionEvent e) -> advance());
         advancerTimer.start();
 
+        //Timer to produce sun
         sunProducer = new Timer(4000,(ActionEvent e) -> {
             Random rnd = new Random();
             Sun sta = new Sun(this,rnd.nextInt(800)+100,0,rnd.nextInt(300)+200);
@@ -143,6 +155,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         });
         sunProducer.start();
 
+        //Timer to produce zombies
         zombieProducer = new Timer(7000,(ActionEvent e) -> {
             Random rnd = new Random();
             LevelData lvl = new LevelData();
@@ -160,6 +173,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         });
         zombieProducer.start();
 
+        //Timer to spawn waves of zombies
         zombieSpawn = new Timer(1500,(ActionEvent e) -> {
             Random rnd = new Random();
             LevelData lvl = new LevelData();
@@ -240,6 +254,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
             }
         }
 
+        //Draw zombies
         for (int i = 0; i < 5 ; i++) {
             for(Zombie z : laneZombies.get(i)){
                 if(z instanceof NormalZombie){
@@ -253,6 +268,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
                 }
             }
 
+            //Draw bullets of the plants
             for (int j = 0; j < lanePeas.get(i).size(); j++) {
                 Pea p = lanePeas.get(i).get(j);
                 if(p instanceof FreezePea){
@@ -281,6 +297,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
         }
 
         @Override
+        //Call the correct plants when click into the cards, manage the sun score
         public void actionPerformed(ActionEvent e) {
             if(activePlantingBrush == GameWindow.PlantType.Sunflower){
                 if(getSunScore()>=50) {
@@ -339,8 +356,7 @@ public class GamePanel extends JLayeredPane implements MouseMotionListener {
     }
     // Static variable to track game progress
     static int progress = 0;
-
-    // Update the game progress
+    // Update the game progress - Game loop
     public static void setProgress(int num) {
         progress = progress + num;
         System.out.println(progress);

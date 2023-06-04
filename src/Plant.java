@@ -1,3 +1,10 @@
+/* Name: NH1 - TTH2
+Huynh Ngoc Anh Thu, ITCSIU21034
+Pham Nguyen Dang Khoi, ITCSIU21196
+Nguyen Tien Son, ITITIU21297
+Dinh Hoang Thao Nguyen, ITITWE2008
+Purpose: A simple version of the game Plants VS Zombies
+*/
 // The Plant class is an abstract class that serves as a base class for different types of plants
 public abstract class Plant {
 
